@@ -33,6 +33,15 @@ class ExpenseListAdapter(private val records: MutableList<ExpenseRecord>) :
             records.removeAt(position)
             notifyItemRemoved(position)
         }
+        holder.btnShowDetails.setOnClickListener {
+            val intent = Intent(it.context, ExpenseDetailsActivity::class.java).apply {
+                putExtra("EXTRA_NAME", expense.title)
+                putExtra("EXTRA_AMOUNT", expense.price)
+                putExtra("EXTRA_DATE", expense.date)
+            }
+            it.context.startActivity(intent)
+        }
+
     }
 
     override fun getItemCount() = records.size
