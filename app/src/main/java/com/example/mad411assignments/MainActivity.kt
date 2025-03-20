@@ -15,11 +15,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var expenseListAdapter: ExpenseListAdapter
     private val expenseRecords = mutableListOf<ExpenseRecord>()
     private var selectedDate: String = "No date selected"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("Lifecycle", "onCreate called")
+        Log.d("Lifecycle", "onCreate ")
+        //header footer
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.headerContainer, HeaderFragment())
+        transaction.replace(R.id.footerContainer, FooterFragment())
+        transaction.commit()
+        //variable declaration
         val fieldTitle = findViewById<TextInputEditText>(R.id.inputExpenseTitle)
         val fieldCost = findViewById<TextInputEditText>(R.id.inputCost)
         val buttonSubmit = findViewById<Button>(R.id.btnSubmitExpense)
@@ -27,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         val textSelectedDate = findViewById<TextView>(R.id.textSelectedDate)
         val recyclerView = findViewById<RecyclerView>(R.id.listExpenses)
 
+        //RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         expenseListAdapter = ExpenseListAdapter(expenseRecords)
         recyclerView.adapter = expenseListAdapter
