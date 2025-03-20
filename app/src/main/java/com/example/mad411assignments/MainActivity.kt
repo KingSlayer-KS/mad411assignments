@@ -9,6 +9,7 @@ import com.google.android.material.textfield.TextInputEditText
 import android.widget.Button
 import android.widget.TextView
 import java.util.*
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var expenseListAdapter: ExpenseListAdapter
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        Log.d("Lifecycle", "onCreate called")
         val fieldTitle = findViewById<TextInputEditText>(R.id.inputExpenseTitle)
         val fieldCost = findViewById<TextInputEditText>(R.id.inputCost)
         val buttonSubmit = findViewById<Button>(R.id.btnSubmitExpense)
@@ -50,5 +51,30 @@ class MainActivity : AppCompatActivity() {
                 fieldCost.text?.clear()
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("Lifecycle", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Lifecycle", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Lifecycle", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Lifecycle", "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Lifecycle", "onDestroy")
     }
 }
