@@ -1,5 +1,6 @@
 package com.example.mad411assignments
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ class ExpenseListAdapter(private val records: MutableList<ExpenseRecord>) :
         val txtCost: TextView = itemView.findViewById(R.id.txtExpenseCost)
         val txtDate: TextView = itemView.findViewById(R.id.txtExpenseDate)
         val btnRemove: Button = itemView.findViewById(R.id.btnDeleteExpense)
+        val btnShowDetails: Button = itemView.findViewById(R.id.btnShowDetails)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {
