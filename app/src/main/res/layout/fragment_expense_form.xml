@@ -6,6 +6,24 @@
     android:orientation="vertical"
     android:padding="5dp">
 
+    <Switch
+        android:id="@+id/switchConversion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conversion Needed" />
+
+    <Spinner
+        android:id="@+id/spinnerCurrency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textConvertedCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Converted Cost: N/A"
+        android:padding="8dp"/>
+
     <FrameLayout
         android:id="@+id/headerContainer"
         android:layout_width="match_parent"
