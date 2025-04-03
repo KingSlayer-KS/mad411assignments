@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/expenseFormFragment">
+
+    <fragment
+        android:id="@+id/expenseFormFragment"
+        android:name="com.example.mad411assignments.ExpenseFormFragment"
+        android:label="Expense Form"
+        tools:layout="@layout/fragment_expense_form" />
+
+    <fragment
+        android:id="@+id/expenseDetailsFragment"
+        android:name="com.example.mad411assignments.ExpenseDetailsFragment"
+        android:label="Expense Details"
+        tools:layout="@layout/fragment_expense_details">
+
+    </fragment>
+</navigation>

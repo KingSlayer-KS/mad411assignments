@@ -1,6 +1,5 @@
 package com.example.mad411assignments
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +7,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ExpenseListAdapter( private val records: MutableList<ExpenseRecord>,
-                          private val onUpdate: () -> Unit
-) :
-    RecyclerView.Adapter<ExpenseListAdapter.RecordViewHolder>() {
+class ExpenseListAdapter(
+    private val records: MutableList<ExpenseRecord>,
+    private val onUpdate: () -> Unit,
+    private val onShowDetails: (ExpenseRecord) -> Unit
+) : RecyclerView.Adapter<ExpenseListAdapter.RecordViewHolder>() {
 
     class RecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtTitle: TextView = itemView.findViewById(R.id.txtExpenseTitle)
@@ -38,15 +38,10 @@ class ExpenseListAdapter( private val records: MutableList<ExpenseRecord>,
             notifyItemRemoved(position)
             onUpdate()
         }
-        holder.btnShowDetails.setOnClickListener {
-            val intent = Intent(it.context, ExpenseDetailsActivity::class.java).apply {
-                putExtra("EXTRA_NAME", expense.title)
-                putExtra("EXTRA_AMOUNT", expense.price)
-                putExtra("EXTRA_DATE", expense.date)
-            }
-            it.context.startActivity(intent)
-        }
 
+        holder.btnShowDetails.setOnClickListener {
+            onShowDetails(expense)
+        }
     }
 
     override fun getItemCount() = records.size
