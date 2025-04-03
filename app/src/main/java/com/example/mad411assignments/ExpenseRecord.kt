@@ -5,5 +5,5 @@ data class ExpenseRecord(
     val price: Double,
     val date: String,
     val currency: String = "CAD",
-    val convertedCost: Double = price
+    val convertedCost: Double
 )

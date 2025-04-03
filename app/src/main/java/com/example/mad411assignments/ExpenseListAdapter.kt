@@ -1,11 +1,13 @@
 package com.example.mad411assignments
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+
 
 class ExpenseListAdapter(
     private val records: MutableList<ExpenseRecord>,
@@ -32,6 +34,7 @@ class ExpenseListAdapter(
         holder.txtTitle.text = expense.title
         holder.txtCost.text = "$${expense.price}"
         holder.txtDate.text = expense.date
+        Log.d("ghvvtugutugtv",expense.convertedCost.toString())
 
         holder.btnRemove.setOnClickListener {
             records.removeAt(position)

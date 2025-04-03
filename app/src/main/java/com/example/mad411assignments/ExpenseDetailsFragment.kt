@@ -1,6 +1,7 @@
 package com.example.mad411assignments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,8 +19,10 @@ class ExpenseDetailsFragment : Fragment() {
         val name = arguments?.getString("name")
         val amount = arguments?.getString("amount")
         val date = arguments?.getString("date")
+        val cc = arguments?.getString("cc")
+        Log.d("CurrencyDebug", "Converted cost: $cc")
 
-        txtbox.text = "Name: $name\nAmount: $amount\nDate: $date"
+        txtbox.text = "Name: $name\nAmount: $amount\nDate: $date  \ncc: $cc"
         return view
     }
 }
