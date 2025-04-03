@@ -11,8 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mad411assignments.ExpenseRecord
-import com.example.mad411assignments.network.CurrencyApiService
 import com.example.mad411assignments.network.RetrofitClient
 import kotlinx.coroutines.launch
 import android.util.Log
